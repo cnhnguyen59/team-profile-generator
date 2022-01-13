@@ -1,38 +1,55 @@
 const inquirer = require('inquirer');
+/* const menu = require('inquirer-menu');
+const addMenu = require('./utils/menu'); */
+const questions = require('./utils/questions')
+const functions = require('./utils/functions')
 
-
-const managerQ = [{ 
-    type: 'text',
-    name: 'name',
-    message: 'Manager name:'
-},
-{ 
-    type: 'text',
-    name: 'email',
-    message: 'Manager email:'
-},
-{ 
-    type: 'text',
-    name: 'ID',
-    message: 'Manager ID:'
-},
-{ 
-    type: 'text',
-    name: 'officeNum',
-    message: 'Manager office number:'
-},
-{ 
-    type: 'list',
-    name: 'addTeamMem',
-    message: 'Add another team member?:',
-    choices: ['Engineer', "Intern", 'None']
-}]
-
-inquirer
-    .prompt(managerQ)
-    .then(data => console.log(data))
+function init(){
+    inquirer
+    .prompt(questions.manager)
     .then(data => {
-        if (data.addTeamMem == 'Engineer'){
-            inquirer.prompt(engineerQ)
-        }
-    } )
+        console.log(data)
+        functions.addTeamMem(data)
+        //create manager card
+        /* if (data.addTeamMem == 'Engineer'){
+           /*  menu(addMenu.createMenu)
+                .then(()=> console.log('Generating team profile'))
+                .catch((err) => console.log(err.stack))
+                inquirer(questions.engineer)
+                    .prompt(data =>{
+                        console.log(data)
+                    })
+        } else if (data.addTeamMem == 'Intern'){
+            inquirer(questions.intern)
+                    .prompt(data =>{
+                        console.log(data)
+                    })
+        } else {
+            console.log('Geberating Team Profile')
+        } */
+    })
+}
+
+/* function addTeamMem(data){
+    if (data.addTeamMem == 'Engineer'){
+        inquirer
+            .prompt(questions.engineer)
+            .then(data =>{
+                // create team member card
+                addTeamMem(data)
+            })
+     } else if (data.addTeamMem == 'Intern'){
+        inquirer
+            .prompt(questions.engineer)
+            .then(data =>{
+                // create team member card
+                addTeamMem(data)
+            })
+     } else {
+         console.log('Generating Team Profile')
+     }
+} */
+
+init()
+
+
