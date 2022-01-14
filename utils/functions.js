@@ -71,3 +71,5 @@ function addTeamMem(data, team){
 }
 
 module.exports.addTeamMem = addTeamMem
+module.exports.managerCard = managerCard
+module.exports.teamMemCard = teamMemCard
