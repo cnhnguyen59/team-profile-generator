@@ -1,5 +1,3 @@
-const { createPromptModule } = require("inquirer")
-
 class Employee {
     constructor (role, name, id, email){
         this.role = role
