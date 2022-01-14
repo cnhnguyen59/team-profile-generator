@@ -21,4 +21,9 @@ function addTeamMem(data){
      }
 }
 
+function createCard(){
+    
+
+}
+
 module.exports.addTeamMem = addTeamMem

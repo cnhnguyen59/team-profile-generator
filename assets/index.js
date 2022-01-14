@@ -3,12 +3,27 @@ const inquirer = require('inquirer');
 const addMenu = require('./utils/menu'); */
 const questions = require('./utils/questions')
 const functions = require('./utils/functions')
+const managerEL = document.getElementById('manager')
 
 function init(){
     inquirer
     .prompt(questions.manager)
     .then(data => {
         console.log(data)
+        let output =`
+        <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+        <div class="card-header">Manager</div>
+        <div class="card-body">
+          <h4 class="card-title">${data.name}</h4>
+          <p class="card-text">
+            Email: ${data.email}
+            Manager ID: ${data.ID}
+            Office Number: ${data.officeNum}
+          </p>
+        </div>`
+        
+        managerEL.innerHTML = output
+
         functions.addTeamMem(data)
         //create manager card
         /* if (data.addTeamMem == 'Engineer'){

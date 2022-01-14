@@ -24,7 +24,6 @@ const manager = [{
     message: 'Add team member?:',
     choices: ['Engineer', 'Intern', 'No']
 }]
-
 const engineer = [{ 
     type: 'text',
     name: 'name',
@@ -51,7 +50,6 @@ const engineer = [{
     message: 'Add another team member?:',
     choices: ['Engineer', "Intern", 'No']
 }]
-
 const intern = [{ 
     type: 'text',
     name: 'name',
