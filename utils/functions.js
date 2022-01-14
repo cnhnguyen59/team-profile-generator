@@ -1,7 +1,9 @@
 const inquirer = require('inquirer')
+const questions = require('./questions')
 const Engineer = require('./engineer')
 const Intern = require('./intern')
-const questions = require('./questions')
+let managerCard = ''
+let teamMemCard = ''
 
 function addTeamMem(data, team){
     console.log(data)
@@ -27,39 +29,45 @@ function addTeamMem(data, team){
             })
      } else {
          console.log('Generating Team Profile')
-         console.log(team)
+         team.forEach(employee => {
+            let cardStyle = employee.getRole() == 'Manager'? 'bg-primary' : 'bg-secondary'
+            console.log(cardStyle)
+            let textColor = employee.getRole() == 'Manager'? 'text-white' : ''
+            console.log(textColor)
+            let uniqueQ =''
+            let info =''
+            if (employee.getRole() == 'Manager'){
+                uniqueQ = 'Office Number'
+                info = employee.getOffice()
+            } else if (employee.getRole() == 'Engineer'){
+                uniqueQ = 'Github'
+                info = employee.getGithubUser()
+            } else {
+                uniqueQ = 'School'
+                employee.getSchool()
+            }
+        
+            let card =`
+            <div class="card ${textColor} ${cardStyle} mx-2 mb-3" style="width: 20rem;">
+                <div class="card-header">${employee.getRole()}</div>
+                <div class="card-body">
+                    <h4 class="card-title">${employee.getName()}</h4>
+                    <p class="card-text">
+                    ID: ${employee.getId()}
+                    Email: ${employee.getEmail()}
+                    ${uniqueQ}: ${info}
+                    </p>
+                </div>
+            </div>`
+        
+
+            employee.getRole() == 'Manager' ? managerCard += card :teamMemCard += card
+  
+         });
+
+         console.log(managerCard)
+         console.log(teamMemCard)
      }
 }
-
-function createCard(employee){
-    let cardStyle = employee.getRole() != 'Manager'? 'bg-primary' : 'bg-secondary'
-    let last =''
-    let info =''
-    if (employee.getRole() != 'Manager'){
-        last = 'Office Number'
-        info = employee.getOfficeNum()
-    } else if (employee.getRole() != 'Engineer'){
-        last = 'Github'
-        info = employee.getGithubUser()
-    } else {
-        last = 'School'
-        employee.getSchool()
-    }
-
-    let card =`
-    <div class="card text-white ${cardStyle} mb-3" style="max-width: 20rem;">
-        <div class="card-header">${employee.getRole()}</div>
-        <div class="card-body">
-            <h4 class="card-title">${employee.getName()}</h4>
-            <p class="card-text">
-            ID: ${employee.getID()}
-            Email: ${employee.getEmail()}
-            ${last}: ${info}
-            </p>
-        </div>
-    </div>`
-
-}
-
 
 module.exports.addTeamMem = addTeamMem

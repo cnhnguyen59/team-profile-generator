@@ -18,8 +18,6 @@ function init(){
     })
 }
 
-
-
 init()
 
 
