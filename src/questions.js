@@ -36,7 +36,7 @@ const engineer = [{
 },
 { 
     type: 'text',
-    name: 'id',
+    name: 'ID',
     message: 'Employee ID:'
 },
 { 
@@ -62,7 +62,7 @@ const intern = [{
 },
 { 
     type: 'text',
-    name: 'id',
+    name: 'ID',
     message: 'Intern ID:'
 },
 { 

@@ -30,6 +30,7 @@ function addTeamMem(data, team){
             })
      } else {
          console.log('Generating team profile...')
+         console.log(team)
          team.forEach(employee => {
             let cardStyle = employee.getRole() == 'Manager'? 'bg-primary' : 'border-primary'
             let textColor = employee.getRole() == 'Manager'? 'text-white' : ''
@@ -40,7 +41,7 @@ function addTeamMem(data, team){
                 info = employee.getOfficeNumber()
             } else if (employee.getRole() == 'Engineer'){
                 uniqueQ = 'Github'
-                info = employee.getGithubUser()
+                info = employee.getGithub()
             } else {
                 uniqueQ = 'School'
                 info = employee.getSchool()
@@ -53,7 +54,7 @@ function addTeamMem(data, team){
                     <h4 class="card-title">${employee.getName()}</h4>
                     <p class="card-text">
                     ID: ${employee.getId()}<br>
-                    Email: ${employee.getEmail()}<br>
+                    Email: <a href="mailto:${employee.getEmail()}"style="color: rgb(0, 68, 255)>${employee.getEmail()}</a><br>
                     ${uniqueQ}: ${info}
                     </p>
                 </div>
