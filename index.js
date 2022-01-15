@@ -2,8 +2,6 @@ const inquirer = require('inquirer');
 const questions = require('./src/questions')
 const functions = require('./src/functions')
 const Manager = require('./lib/manager')
-/* const Engineer = require('./utils/engineer')
-const Intern = require('./utils/intern') */
 
 let team = []
 

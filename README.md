@@ -22,11 +22,11 @@
   ```bash 
   npm index.js
   ```
-  ![answers](../Assets/)
+  ![answers](./dist/assets/example.png)
 
-  ![video](../Assets/)
+  ![video](./dist/assets/team-profile-generator.gif)
   
-  Video Link: 
+  Video Link: https://watch.screencastify.com/v/LUb4UIYHCpNZevgZZgpD
   
   <a name="test"></a>
   ## Test
