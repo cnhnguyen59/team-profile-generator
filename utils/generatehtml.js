@@ -1,5 +1,8 @@
 const cards = require('./functions')
 
+console.log(cards.managerCard)
+console.log(cards.teamMemCard)
+
 let htmlOutput = `
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +22,7 @@ let htmlOutput = `
             ${cards.managerCard}
         </div>
         <div class="col-lg-12 d-flex flex-wrap justify-content-center" id="team">
-            ${cards.teamMemCard}
+            ${cards.teamMemCard}  
         </div>
     </div>
     
@@ -29,3 +32,5 @@ let htmlOutput = `
 </body>
 </html>
 `
+
+module.exports = htmlOutput

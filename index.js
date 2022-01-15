@@ -2,8 +2,9 @@ const inquirer = require('inquirer');
 const questions = require('./utils/questions')
 const functions = require('./utils/functions')
 const Manager = require('./utils/manager')
-const Engineer = require('./utils/engineer')
-const Intern = require('./utils/intern')
+/* const Engineer = require('./utils/engineer')
+const Intern = require('./utils/intern') */
+
 let team = []
 
 function init(){
@@ -13,7 +14,7 @@ function init(){
         const employee = new Manager(data.name, data.ID, data.email, data.officeNum)
 
         team.push(employee)
-        console.log(data.addTeamMem)
+        
         functions.addTeamMem(data.addTeamMem, team)
     })
 }
